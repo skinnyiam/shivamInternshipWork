@@ -1,7 +1,13 @@
+import {useRouter} from "next/router";
 import React from "react";
 import Navbar2 from "../components/Navbar2";
 
 const ForgetPassword = () => {
+ const router = useRouter()
+  const handleLink = ()=>{
+       router.push("/authentication")
+  }
+
   return (
     <div className="h-screen w-screen">
       <Navbar2 />
@@ -20,7 +26,7 @@ const ForgetPassword = () => {
             type="text"
             placeholder="Enter your email"
           />
-           <p><button className="rounded-2xl p-2 w-[470px] h-12 mt-8 bg-[#194BFB] text-white font-semibold">Send Link</button></p>
+           <p><button onClick={handleLink} className="rounded-2xl p-2 w-[470px] h-12 mt-8 bg-[#194BFB] text-white font-semibold">Send Link</button></p>
            <p className="font-bold text-[#1A202C] text-center mt-6">Forgot your email?</p>
         </div>
       </div>

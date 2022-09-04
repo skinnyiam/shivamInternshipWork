@@ -2,8 +2,14 @@ import React from "react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { FiEyeOff } from "react-icons/fi";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const SignInForm = () => {
+const SignUpForm = () => {
+  const router = useRouter();
+  const handleSignIn = ()=>{
+    router.push("/")
+  }
   return (
     <div className="w-1/2 h-screen bg-white p-4">
       
@@ -32,6 +38,7 @@ const SignInForm = () => {
               className="border-2 rounded-2xl p-2 w-[180px] h-14 outline-none"
               type="text"
               placeholder="First Name"
+              required="true"
             />
             <input
               className="border-2 rounded-2xl p-2 w-[180px] ml-8 h-14 outline-none"
@@ -54,9 +61,9 @@ const SignInForm = () => {
             <div className="mt-4 flex justify-around">
               <p className="text-[#718096]">By creating an account, you agreeing to our <span className="text-[#1A202C] font-semibold">Privacy Policy</span> , and <span className="text-[#1A202C] font-semibold"> Electronics Communication Policy.</span></p>
             </div>
-            <button className="rounded-2xl p-2 w-[400px] h-12 mt-8 bg-[#194BFB] text-white font-semibold">Sign Up</button>
+            <button onClick={handleSignIn} className="rounded-2xl p-2 w-[400px] h-12 mt-8 bg-[#194BFB] text-white font-semibold">Sign Up</button>
           </div>
-          <h1 className="mt-8 text-center text-[#1A202C] font-normal ">Already have an account? <span className="text-[#1A202C] font-semibold"> Sign In</span> </h1>
+          <h1 className="mt-8 text-center text-[#1A202C] font-normal ">Already have an account? <span className="text-[#1A202C] font-semibold underline underline-offset-1"><Link href="/">Sign In</Link> </span> </h1>
         </div>
       </div>
 
@@ -68,4 +75,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
